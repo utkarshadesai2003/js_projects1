@@ -1,35 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="project3.css" />
-    <link rel="stylesheet" href="../styles.css" />
-    <title>BMI Calculator</title>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a target="_blank" href="https://www.youtube.com/@chaiaurcode"
-        >Youtube channel</a
-      >
-    </nav>
-    <div class="container">
-      <h1>BMI Calculator</h1>
-      <form>
-        <p><label>Height in CM: </label><input type="text" id="height" /></p>
-        <p><label>Weight in KG: </label><input type="text" id="weight" /></p>
-        <button>Calculate</button>
-        <div id="results"></div>
-        <div id="weight-guide">
-          <h3>BMI Weight Guide</h3>
-          <p>Under Weight = Less than 18.6</p>
-          <p>Normal Range = 18.6 and 24.9</p>
-          <p>Overweight = Greater than 24.9</p>
-        </div>
-      </form>
-    </div>
-  </body>
-  <script src="project3.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-color: #f4f4f9;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #181616;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            margin: 10px auto;
+        }
+
+        .card h1 {
+            margin: 0 0 10px 0;
+        }
+
+        .card p {
+            margin: 6px 0;
+        }
+
+        .card .salary {
+            color: green;
+           
+        }
+    </style>
+</head>
+<body>
+  <h1><center><b><u>UserCard</u></b></center></h1>
+    <h1 id="user-card"></h1>
+
+    <script>
+       
+        const userObj = {
+            name: 'Priya',
+            surname: 'Desai',
+            salary: 10000
+        };
+
+       
+        function createCard(name, surname, salary) {
+            const card = document.createElement('h1');
+            card.classList.add('card');
+            
+            const userName = document.createElement('h1');
+            userName.textContent = name + ' ' + surname;
+            
+            const userSalary = document.createElement('p');
+            userSalary.classList.add('salary');
+            userSalary.textContent = 'Salary: $' + salary;
+            
+            card.appendChild(userName);
+            card.appendChild(userSalary);
+
+            return card;
+        }
+
+      
+        const userCardContainer = document.getElementById('user-card');
+        userCardContainer.appendChild(createCard(userObj.name, userObj.surname, userObj.salary));
+    </script>
+</body>
 </html>
